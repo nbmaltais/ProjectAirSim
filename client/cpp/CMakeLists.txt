@@ -16,6 +16,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
 endif()
+# Force .pdb to be embeded in .lib file since we merge .lib into a single .lib file on windows
+set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT Embedded)
 
 if(NOT WIN32)
     find_package(Threads REQUIRED)
